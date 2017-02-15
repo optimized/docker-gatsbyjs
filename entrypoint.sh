@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 
-if ! grep -q "gatsby build" /srv/package.json
+
+if [ "$1" != "new" ] && ! grep -q "gatsby build" /srv/package.json
 then
-echo "Run 'new yoursitename'"
+    echo "Run 'new yoursitename'"
+    exit 1
 fi
 
-exec "gatsby $@"
+exec gatsby "$@"
