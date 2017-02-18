@@ -3,7 +3,8 @@ FROM debian:jessie
 RUN apt-get update && apt-get install -y \
     curl \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash /dev/stdin \
-    && apt-get install -y nodejs git-all gcc nasm make autoconf
+    && apt-get install -y nodejs git-all gcc nasm make autoconf \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g gatsby
 
