@@ -2,7 +2,7 @@
 set -e
 
 # if building the site or if node_modules does not exist
-if [ "$1" == "build" ] || ! stat /srv/node_modules/
+if [ "$1" == "build" ] || [ ! -e /srv/node_modules/ ]
 then
 
     # remove node modules to prevent node-sass platform confilcts
